@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 // First HubSpot portal token
-const HUBSPOT_API_KEY_1 = 'pat-na2-08927b51-adfc-4e26-87b2-b2283cb9898c';
+const HUBSPOT_API_KEY_1 = process.env.HUBSPOT_API_KEY_1;
 const HUBSPOT_API_URL = 'https://api.hubapi.com';
 
 export interface ContactData {

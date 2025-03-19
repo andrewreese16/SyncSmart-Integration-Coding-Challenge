@@ -1,29 +1,19 @@
-# Create T3 App
+# HubSpot Portal Integration
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A Next.js application that allows for seamless data transfer between HubSpot portals. This tool demonstrates the power of the HubSpot API for cross-portal contact management.
 
-## What's next? How do I make an app with this?
+![HubSpot Portal Integration](public/mainpage.png)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## 🚀 Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **Generate Fake Contacts**: Create 100 realistic fake contacts in your HubSpot test portal with a single click
+- **Cross-Portal Transfer**: Move contacts from one HubSpot portal to another effortlessly
+- **Language**: Typescript
+- **Modern UI**: Built with Material UI for a clean, responsive user experience
+- **NextJS Framework**: Leverages the power and simplicity of Next.js with the Pages Router
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+![HubSpot Test Portal 1](public/testportal1.png)
+### **This is the test portal 1 with the generated 100 fake contacts**
 
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+![HubSpot Test Portal 2](public/testportal2.png)
+### **This is the test portal 2 with the same 100 fake contacts transferred over**

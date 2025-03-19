@@ -1,4 +1,4 @@
-# HubSpot Portal Integration
+# SyncSmart Integration Coding Challenge
 
 A Next.js application that allows for seamless data transfer between HubSpot portals. This tool demonstrates the power of the HubSpot API for cross-portal contact management.
 

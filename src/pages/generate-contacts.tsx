@@ -119,7 +119,7 @@ export default function GenerateContacts() {
             color="primary"
             sx={{ mb: 4, fontWeight: "bold" }}
           >
-            HubSpot Contacts Manager
+            SyncSmart Integration Coding Challenge
           </Typography>
 
           <Stack spacing={6}>

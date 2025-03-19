@@ -58,7 +58,7 @@ export default async function handler(
       }
     );
 
-    // Transform the response to our ContactData format
+    // Transform the response to ContactData format
     const contacts: ContactData[] = response.data.results.map((result) => ({
       email: result.properties.email,
       firstname: result.properties.firstname,

@@ -2,10 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 // Second HubSpot portal token
-const HUBSPOT_API_KEY_2 = process.env.HUBSPOT_API_KEY_2;; // Replace with your second portal token
+const HUBSPOT_API_KEY_2 = process.env.HUBSPOT_API_KEY_2;;
 const HUBSPOT_API_URL = 'https://api.hubapi.com';
 
-// Define the contact data type
+// Defining the contact data type
 interface ContactData {
   email: string;
   firstname: string;

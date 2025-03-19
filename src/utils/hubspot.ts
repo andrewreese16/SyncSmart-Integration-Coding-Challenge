@@ -7,7 +7,7 @@ export interface ContactData {
   lastname: string;
 }
 
-// Create a batch of contacts in HubSpot portal 1 through our API route
+// Create a batch of contacts in HubSpot portal 1 through API route
 export const createContactsPortal1 = async (contacts: ContactData[]): Promise<unknown> => {
   try {
     const response = await axios.post('/api/create-contacts', { contacts });
@@ -29,7 +29,7 @@ export const getContactsFromPortal1 = async (): Promise<ContactData[]> => {
   }
 };
 
-// Create a batch of contacts in HubSpot portal 2 through our API route
+// Create a batch of contacts in HubSpot portal 2 through API route
 export const createContactsPortal2 = async (contacts: ContactData[]): Promise<unknown> => {
   try {
     const response = await axios.post('/api/create-contacts-portal2', { contacts });

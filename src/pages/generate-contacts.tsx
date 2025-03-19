@@ -8,8 +8,11 @@ import {
   CircularProgress,
   Alert,
   Snackbar,
-  Grid,
-  Divider,
+  Paper,
+  Card,
+  CardContent,
+  CardActions,
+  Stack,
 } from "@mui/material";
 import {
   createContactsPortal1,
@@ -88,98 +91,178 @@ export default function GenerateContacts() {
   };
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ my: 4, textAlign: "center" }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          HubSpot Contacts Manager
-        </Typography>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        py: 6,
+        backgroundColor: "background.default",
+      }}
+    >
+      <Container maxWidth="md">
+        <Paper
+          elevation={3}
+          sx={{
+            p: 4,
+            borderRadius: 2,
+            backgroundColor: "background.paper",
+            mb: 6,
+          }}
+        >
+          <Typography
+            variant="h3"
+            component="h1"
+            gutterBottom
+            align="center"
+            color="primary"
+            sx={{ mb: 4, fontWeight: "bold" }}
+          >
+            HubSpot Contacts Manager
+          </Typography>
 
-        <Grid container spacing={4} direction="column">
-          <Grid item>
-            <Typography variant="h5" component="h2" gutterBottom>
-              Generate Contacts
-            </Typography>
-
-            <Typography variant="body1" sx={{ mb: 4 }}>
-              Click the button below to generate 100 fake contacts in your first
-              HubSpot test account.
-            </Typography>
-
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={handleGenerateContacts}
-              disabled={loading}
+          <Stack spacing={6}>
+            <Card
+              sx={{
+                borderRadius: 2,
+                overflow: "visible",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+              }}
             >
-              {loading ? (
-                <CircularProgress size={24} />
-              ) : (
-                "Generate 100 Contacts"
-              )}
-            </Button>
+              <CardContent sx={{ p: 4 }}>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  gutterBottom
+                  color="secondary"
+                  sx={{ fontWeight: "medium" }}
+                >
+                  Generate Contacts
+                </Typography>
 
-            <Snackbar
-              open={success}
-              autoHideDuration={6000}
-              onClose={() => setSuccess(false)}
+                <Typography variant="body1" sx={{ mb: 3 }}>
+                  Click the button below to generate 100 fake contacts in your
+                  first HubSpot test account.
+                </Typography>
+
+                {error && (
+                  <Alert
+                    severity="error"
+                    sx={{
+                      mb: 3,
+                      boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    {error}
+                  </Alert>
+                )}
+              </CardContent>
+
+              <CardActions sx={{ p: 4, pt: 0, justifyContent: "center" }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={handleGenerateContacts}
+                  disabled={loading}
+                  sx={{
+                    px: 4,
+                    py: 1,
+                    minWidth: 220,
+                    borderRadius: 2,
+                  }}
+                >
+                  {loading ? (
+                    <CircularProgress size={24} color="inherit" />
+                  ) : (
+                    "Generate 100 Contacts"
+                  )}
+                </Button>
+              </CardActions>
+            </Card>
+            <Card
+              sx={{
+                borderRadius: 2,
+                overflow: "visible",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+              }}
             >
-              <Alert severity="success" sx={{ width: "100%" }}>
-                Successfully generated 100 contacts in Portal 1!
-              </Alert>
-            </Snackbar>
+              <CardContent sx={{ p: 4 }}>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  gutterBottom
+                  color="secondary"
+                  sx={{ fontWeight: "medium" }}
+                >
+                  Transfer Contacts
+                </Typography>
 
-            {error && (
-              <Alert severity="error" sx={{ mt: 2 }}>
-                Error: {error}
-              </Alert>
-            )}
-          </Grid>
+                <Typography variant="body1" sx={{ mb: 3 }}>
+                  Click the button below to transfer contacts from your first
+                  HubSpot test account to your second account.
+                </Typography>
 
-          <Grid item>
-            <Divider sx={{ my: 3 }} />
+                {transferError && (
+                  <Alert
+                    severity="error"
+                    sx={{
+                      mb: 3,
+                      boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    {transferError}
+                  </Alert>
+                )}
+              </CardContent>
 
-            <Typography variant="h5" component="h2" gutterBottom>
-              Transfer Contacts
-            </Typography>
+              <CardActions sx={{ p: 4, pt: 0, justifyContent: "center" }}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  onClick={handleTransferContacts}
+                  disabled={transferLoading}
+                  sx={{
+                    px: 4,
+                    py: 1,
+                    minWidth: 220,
+                    borderRadius: 2,
+                  }}
+                >
+                  {transferLoading ? (
+                    <CircularProgress size={24} color="inherit" />
+                  ) : (
+                    "Transfer Contacts to Portal 2"
+                  )}
+                </Button>
+              </CardActions>
+            </Card>
+          </Stack>
+        </Paper>
+      </Container>
+      <Snackbar
+        open={success}
+        autoHideDuration={6000}
+        onClose={() => setSuccess(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert severity="success" variant="filled" sx={{ width: "100%" }}>
+          Successfully generated 100 contacts in Portal 1!
+        </Alert>
+      </Snackbar>
 
-            <Typography variant="body1" sx={{ mb: 4 }}>
-              Click the button below to transfer contacts from your first
-              HubSpot test account to your second account.
-            </Typography>
-
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              onClick={handleTransferContacts}
-              disabled={transferLoading}
-            >
-              {transferLoading ? (
-                <CircularProgress size={24} />
-              ) : (
-                "Transfer Contacts to Portal 2"
-              )}
-            </Button>
-
-            <Snackbar
-              open={transferSuccess}
-              autoHideDuration={6000}
-              onClose={() => setTransferSuccess(false)}
-            >
-              <Alert severity="success" sx={{ width: "100%" }}>
-                Successfully transferred contacts to Portal 2!
-              </Alert>
-            </Snackbar>
-
-            {transferError && (
-              <Alert severity="error" sx={{ mt: 2 }}>
-                Error: {transferError}
-              </Alert>
-            )}
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
+      <Snackbar
+        open={transferSuccess}
+        autoHideDuration={6000}
+        onClose={() => setTransferSuccess(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert severity="success" variant="filled" sx={{ width: "100%" }}>
+          Successfully transferred contacts to Portal 2!
+        </Alert>
+      </Snackbar>
+    </Box>
   );
 }

@@ -8,7 +8,6 @@ interface ContactData {
   lastname: string;
 }
 
-// Replace with your private app token from HubSpot
 const HUBSPOT_API_KEY = 'pat-na2-08927b51-adfc-4e26-87b2-b2283cb9898c';
 const HUBSPOT_API_URL = 'https://api.hubapi.com';
 

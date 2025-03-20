@@ -8,7 +8,7 @@ interface ContactData {
   lastname: string;
 }
 
-const HUBSPOT_API_KEY = 'pat-na2-08927b51-adfc-4e26-87b2-b2283cb9898c';
+const HUBSPOT_API_KEY_1 = process.env.HUBSPOT_API_KEY_1
 const HUBSPOT_API_URL = 'https://api.hubapi.com';
 
 export default async function handler(
@@ -35,7 +35,7 @@ export default async function handler(
       },
       {
         headers: {
-          'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
+          'Authorization': `Bearer ${HUBSPOT_API_KEY_1}`,
           'Content-Type': 'application/json'
         }
       }
